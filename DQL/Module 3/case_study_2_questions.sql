@@ -1,0 +1,17 @@
+-- Questions:
+
+-- 1. Retrieve a list of all distinct product categories.
+-- 2. Show all product names in uppercase.
+-- 3. Select all customers who have not provided a phone number.
+-- 4. Show the first 5 customers sorted alphabetically by name.
+-- 5. Show the 6th to 10th customers alphabetically.
+-- 6. Show products with a price between $5 and $15.
+-- 7. List orders and label them as "High" if total_amount > $50, "Medium" if between $20-$50, and "Low" otherwise.
+-- 8. Display orders with total_amount NULL, and replace it with 0.
+-- 9. Show full_name and the first word from their name only.
+-- 10. Show all orders placed today (assume CURRENT_DATE).
+-- 11. List orders sorted by priority: Delivered > Confirmed > Shipped > Pending.
+-- 12. Show current date, and how many days ago each order was placed.
+-- 13. Show a list of customers with NULL phone numbers labeled as 'Missing'.
+-- 14. List products whose name contains the word 'Pizza'.
+-- 15. Display total number of characters in each product name.

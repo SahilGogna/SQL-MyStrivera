@@ -1,0 +1,24 @@
+-- You're a junior data analyst at a growing food delivery startup. 
+-- The company wants to understand customer behavior, product popularity, 
+-- and order performance.
+
+
+-- 1. Retrieve all customer names and their email addresses.
+-- 2. Get a list of products with aliases: product_name as Item and price as Cost.
+-- 3. Find all products in the 'Beverages' category.
+-- 4. Show all products that cost more than $5.
+-- 5. Retrieve all orders with total amount greater than or equal to $10.
+-- 6. Are there any customers without phone numbers?
+-- 7. Find all products priced between $3 and $6.
+-- 8. Find products named 'French Fries', 'Veg Burger', or 'Margherita Pizza'.
+-- 9. Find customers whose name starts with ‘A’.
+-- 10. List all customers who have placed at least one order.
+-- 11. Find all orders that are not in 'Delivered' status.
+-- 12. Show products that are not priced between $4 and $6.
+-- 13. List products not in 'Main Course', 'Snacks', or 'Beverages' categories.
+-- 14. Find customers whose names don’t start with ‘S’.
+-- 15. Find 'total_price' for each order item
+-- 16. List the top 10 most expensive products, sorted descending by price.
+-- 17. Show customers sorted alphabetically by name.
+-- 18. Show the 5 most recent customers based on 'created_at'.
+-- 19. Display any 3 random products.
