@@ -60,3 +60,49 @@ SELECT * FROM customers ORDER BY created_at DESC LIMIT 5;
 
 select RANDOM()
 SELECT * FROM products ORDER BY RANDOM() LIMIT 3;
+
+
+
+-- Additional queries from class
+-- 7. Find all products priced between $3 and $6.
+Select * 
+from products
+where price between 3.99 and 4.99
+
+Select * 
+from products
+where price>= 3 and price <=6
+
+-- 8. Find products named 'French Fries', 'Veg Burger', or 'Margherita Pizza'.
+SELECT * 
+FROM products 
+WHERE product_name IN ('French Fries', 'Veg Burger', 'Margherita Pizza')
+
+SELECT * 
+FROM products 
+WHERE product_name = 'French Fries'
+or product_name = 'Veg Burger'
+or product_name = 'Margherita Pizza'
+
+-- 9. Find customers whose name starts with ‘A’.
+SELECT * 
+FROM customers 
+WHERE full_name like 'A%'
+
+SELECT * 
+FROM customers 
+WHERE full_name like '%A'
+
+SELECT * 
+FROM customers 
+WHERE full_name like '%A%'
+
+-- if we want to get the customer with second letter as a in their name
+SELECT * 
+FROM customers 
+WHERE full_name like '_a%'
+
+SELECT * 
+FROM customers 
+WHERE full_name like '__a%'
+
