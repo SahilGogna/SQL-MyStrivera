@@ -39,19 +39,59 @@ select
 from bike
 
 -- 4
+-- sum
+
 select 
 	category,
-	count(case when status = 'available' then 1 end) as available_bikes_count,
-	count(case when status = 'rented' then 1 end) as rented_bikes_count
+	sum(case when status = 'available' then 1 else 0 end) as available_bike_count,
+	sum(case when status = 'rented' then 1 else 0 end) as rented_bike_count
 from bike
+group by category
+
+
+-- count 
+select 
+	category,
+	count(case when status = 'available' then 1 end) as available_bike_count,
+	count(case when status = 'rented' then 1 end) as rented_bike_count
+from bike
+group by category
+
+-- subquery
+select 
+	category,
+	sum(available) as available,
+	sum(rented) as rented
+from 
+	(select 
+		category,
+		case when status = 'available' then 1 else 0 end as available,
+		case when status = 'rented' then 1 else 0 end as rented
+	from bike) bike_status
+group by category
+
+
+-- CTE
+
+with 
+	bike_status as (select 
+		category,
+		case when status = 'available' then 1 else 0 end as available,
+		case when status = 'rented' then 1 else 0 end as rented
+	from bike)
+select 
+	category,
+	sum(available) as available,
+	sum(rented) as rented
+from bike_status
 group by category
 
 -- 5
 -- ** to be solved using other methods as well
 select * from
 (select 
-	extract(year from start_timestamp) as year,
-	extract(month from start_timestamp) as month,
+	text(extract(year from start_timestamp)) as year,
+	text(extract(month from start_timestamp)) as month,
 	sum(total_paid)
 from rental
 group by year, month
