@@ -1,0 +1,64 @@
+-- Q1: Find all delayed flights where the delay is greater than the average delay for that airline.
+
+SELECT flight_number, airline,
+       EXTRACT(EPOCH FROM (actual_time - scheduled_time)) / 60 AS delay_minutes
+FROM flight_details f1
+WHERE status = 'Delayed'
+  AND EXTRACT(EPOCH FROM (actual_time - scheduled_time)) / 60 >
+      (
+          SELECT AVG(EXTRACT(EPOCH FROM (actual_time - scheduled_time)) / 60)
+          FROM flight_details
+          WHERE airline = f1.airline AND status = 'Delayed'
+      );
+
+-- Q2: For each terminal, find the gate used most frequently.
+
+SELECT terminal, gate, COUNT(*) AS flight_count
+FROM flight_details
+GROUP BY terminal, gate
+HAVING COUNT(*) = (
+    SELECT MAX(gate_count)
+    FROM (
+        SELECT COUNT(*) AS gate_count
+        FROM flight_details
+        WHERE terminal = flight_details.terminal
+        GROUP BY gate
+    ) AS gate_stats
+);
+
+-- Q3: List all flight numbers that were always on time (never delayed or cancelled).
+
+SELECT DISTINCT flight_number
+FROM flight_details f1
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM flight_details f2
+    WHERE f2.flight_number = f1.flight_number
+      AND f2.status != 'On Time'
+);
+
+-- Q4: List airlines whose average delay is higher than the overall average delay.
+
+SELECT airline, AVG(EXTRACT(EPOCH FROM (actual_time - scheduled_time)) / 60) AS avg_delay
+FROM flight_details
+WHERE status = 'Delayed'
+GROUP BY airline
+HAVING AVG(EXTRACT(EPOCH FROM (actual_time - scheduled_time)) / 60) > (
+    SELECT AVG(EXTRACT(EPOCH FROM (actual_time - scheduled_time)) / 60)
+    FROM flight_details
+    WHERE status = 'Delayed'
+);
+
+-- Q5: List the airline(s) with the highest number of total flights.
+
+SELECT airline, COUNT(*) AS total_flights
+FROM flight_details
+GROUP BY airline
+HAVING COUNT(*) = (
+    SELECT MAX(flight_count)
+    FROM (
+        SELECT COUNT(*) AS flight_count
+        FROM flight_details
+        GROUP BY airline
+    ) AS airline_counts
+);

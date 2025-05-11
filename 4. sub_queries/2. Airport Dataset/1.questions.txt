@@ -1,0 +1,36 @@
+--------------------------------------------------------
+Subqueries can be used in 3 different ways
+1. With WHERE
+2. With FROM 
+3. WITH SELECT
+
+Solve Question 1,2,3 and observe the answers. 
+--------------------------------------------------------
+
+1. Find all flights operated by airlines that had at least one cancelled flight.
+(Subquery in the WHERE Clause)
+
+2. Find the average delay time (in minutes) per airline — use a subquery to first calculate delay minutes.
+(Subquery in the FROM Clause)
+
+3. For each airline, show the number of flights and the number of cancelled flights using a subquery.
+(Subquery in the SELECT Clause)
+
+4. Find all flights by airlines that had at least one cancelled flight.
+
+5. List all flights (regardless of status) going to or coming from destinations where at least one flight was cancelled.
+
+6. List cancelled flights that were assigned to a gate that has also seen on-time flights.
+
+7. List flights by airlines that have never had a cancelled flight.
+
+8. Show all flights to destinations where no flight was on time.
+
+9. List flights scheduled before any delayed flight.
+
+10. Show flights scheduled after any cancelled flight.
+
+11. Show flights that were scheduled after all cancelled flights.
+
+12. List airlines where every flight is on time.
+

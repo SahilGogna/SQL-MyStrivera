@@ -1,0 +1,17 @@
+
+-- Advanced SQL Subqueries – Big Tech Inspired Questions
+
+-- Q1: Find all delayed flights where the delay is greater than the average delay for that airline.
+(Delayed More Than Airline Average (inspired by Amazon-style analytics))
+
+-- Q2: For each terminal, find the gate used most frequently.
+(Most Frequently Used Gate per Terminal (Google-style grouped max pattern))
+
+-- Q3: List all flight numbers that were always on time (never delayed or cancelled).
+(Flights That Were Always On Time (Facebook-style consistency check))
+
+-- Q4: List airlines whose average delay is higher than the overall average delay.
+(Airlines with Above-Average Delays (Overall) (Microsoft-style aggregate filtering))
+
+-- Q5: List the airline(s) with the highest number of total flights.
+(Find the Busiest Airline by Number of Flights (Amazon-style top-k filter))
