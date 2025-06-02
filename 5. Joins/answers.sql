@@ -50,6 +50,14 @@ LEFT JOIN employees e ON d.department = e.department
 GROUP BY d.department, d.division;
 
 -- 9
+
+SELECT r.region, r.country, COUNT(e.employee_id) AS employee_count
+FROM regions r
+LEFT JOIN employees e ON r.region_id = e.region_id
+GROUP BY r.region, r.country
+HAVING COUNT(e.employee_id) = 0;
+
+
 SELECT r.region, r.country
 FROM regions r
 LEFT JOIN employees e ON r.region_id = e.region_id
